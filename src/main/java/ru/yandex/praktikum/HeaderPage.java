@@ -15,7 +15,6 @@ public class HeaderPage {
     private By logoButton = By.className("AppHeader_header__logo__2D0X2");
     private By profilePageButton = By.linkText("Личный Кабинет");
 
-
     @Step("Нажать на ссылку страницы конструктора")
     public void clickMainPage() {
         driver.findElement(constructorPageButton).click();

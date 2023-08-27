@@ -21,8 +21,6 @@ public class LoginPage {
 
     public By loginPageHeader = By.xpath(".//*[text()='Вход']");
 
-    public By restorePasswordButton = By.xpath(".//p[2]/a");
-
     @Step("Заполнить поле email")
     public void fillEmailField(String email) {
         driver.findElement(emailField).clear();
@@ -40,28 +38,15 @@ public class LoginPage {
         driver.findElement(enterButton).click();
     }
 
-    @Step("Нажать на ссылку страницы восстановления пароля")
-    public void clickPasswordRestoreButton() {
-        driver.findElement(restorePasswordButton).click();
-    }
-
     public void waitForLoginPage() {
         new WebDriverWait(driver, 10)
                 .until(ExpectedConditions.visibilityOfElementLocated(loginPageHeader));
     }
 
-    @Step("Sign in user")
+    @Step("Авторизоваться пользователем")
     public void loginUser(String email, String password) {
         fillEmailField(email);
         fillPasswordField(password);
         clickEntranceButton();
-
-    }
-
-    @Step("Check empty signIn page is loaded")
-    public void checkEmptySignInPage() {
-       // waitSignInPage();
-        assert(driver.findElement(emailField).getAttribute("value").isEmpty());
-        assert(driver.findElement(passwordField).getAttribute("value").isEmpty());
     }
 }
