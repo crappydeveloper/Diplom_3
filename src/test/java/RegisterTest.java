@@ -1,7 +1,7 @@
 import io.restassured.RestAssured;
 import org.hamcrest.MatcherAssert;
 import org.junit.After;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.WebDriver;
 import io.qameta.allure.junit4.DisplayName;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
@@ -11,12 +11,13 @@ import ru.yandex.praktikum.LoginPage;
 import ru.yandex.praktikum.RegisterPage;
 import ru.yandex.praktikum.User;
 import ru.yandex.praktikum.api.API;
+import ru.yandex.praktikum.util.Webdriver;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 
 
 public class RegisterTest{
-    static ChromeDriver driver;
+    static WebDriver driver;
     private String name = RandomStringUtils.randomAlphabetic(10);
     private String email = RandomStringUtils.randomAlphabetic(10) + "@sdff.com";
     private String password = RandomStringUtils.randomAlphabetic(6);
@@ -24,7 +25,7 @@ public class RegisterTest{
 
     @Before
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = Webdriver.getWebDriver("yandex");
         driver.get("https://stellarburgers.nomoreparties.site/register");
         RestAssured.baseURI = "https://stellarburgers.nomoreparties.site";
     }

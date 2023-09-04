@@ -12,14 +12,11 @@ public class RegisterPage {
     }
 
     public By nameField = By.xpath(".//fieldset[1]//input");
-
     public By emailField = By.xpath(".//fieldset[2]//input");
-
-    public By passwordField = By.xpath(".//input[@type= 'password']");
-
-    public By registrationButton = By.xpath(".//button[text()= 'Зарегистрироваться']");
-
-    public By errorIncorrectPassword = By.className("input__error");;
+    public By passwordField = By.xpath(".//input[@type='password']");
+    public By registrationButton = By.xpath(".//button[text()='Зарегистрироваться']");
+    public By errorIncorrectPassword = By.className("input__error");
+    public By loginPageButton = By.className("Auth_link__1fOlj");
 
     @Step("Заполнить поле имени")
     public void fillNameField(String name) {
@@ -42,6 +39,11 @@ public class RegisterPage {
     @Step("Нажатие на кнопку регистрации")
     public void clickSignUpButton() {
         driver.findElement(registrationButton).click();
+    }
+
+    @Step("Нажать на ссылку страницы авторизации")
+    public void clickLoginButton() {
+        driver.findElement(loginPageButton).click();
     }
 
     @Step("Зарегистрировать пользователя")

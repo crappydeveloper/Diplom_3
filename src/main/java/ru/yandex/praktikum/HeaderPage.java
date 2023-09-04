@@ -26,8 +26,7 @@ public class HeaderPage {
     }
 
     @Step("Нажать на логотип")
-    public void clickLogotype() {
+    public void clickLogoButton() {
         driver.findElement(logoButton).click();
-
     }
 }
